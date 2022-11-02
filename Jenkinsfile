@@ -13,7 +13,7 @@ pipeline {
         }
         stage("Run Test"){
             steps {
-                sh "docker-compose up ./resources/suite"
+                sh "docker-compose up test"
             }
         }
     }
