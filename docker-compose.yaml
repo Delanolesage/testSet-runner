@@ -12,6 +12,7 @@ services:
       - HUB_HOST=hub
   firefox:
     image: selenium/node-firefox:3.141.59
+    shm_size: '1gb'
     depends_on:
       - hub
     environment:
@@ -21,7 +22,8 @@ services:
     depends_on:
       - chrome
     environment:
+      - HUB_HOST=hub
       - CUCUMBER_FEATURES=classpath:features
       - FILE=resources/test.properties
     volumes:
-      - ./output:/usr/share/test-automation/test-report
+      - ./output/test-result:/usr/share/test-automation/test-report
