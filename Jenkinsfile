@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Pull latest image") {
             steps {
-                sh "docker pull olatundji/testset"
+                sh "docker pull olatundji/testset-docker"
             }
         }
         stage("Start Grid"){
