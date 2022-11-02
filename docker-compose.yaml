@@ -23,7 +23,7 @@ services:
       - chrome
     environment:
       - HUB_HOST=hub
-      - CUCUMBER_FEATURES="resources/features"
+      - CUCUMBER_FEATURES="/resources/features"
       - FILE=resources/test.properties
     volumes:
       - ./output/test-result:/usr/share/test-automation/test-report
