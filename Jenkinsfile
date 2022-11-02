@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage("Pull latest image") {
+            steps {
+                sh "docker pull olatundji/testset"
+            }
+        }
         stage("Start Grid"){
             steps {
                 sh "docker-compose up -d hub chrome"
@@ -11,10 +16,11 @@ pipeline {
                 sh "docker-compose up ./resources/suite"
             }
         }
-        stage("Bring Grid Down"){
-            steps {
-                sh "docker-compose down"
-            }
+    }
+    post {
+        always {
+            archiveArtifacts artifacts: 'output/**'
+            sh "docker-compose down"
         }
     }
 }
