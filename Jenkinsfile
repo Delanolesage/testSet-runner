@@ -20,7 +20,6 @@ pipeline {
     post {
         always {
             sh "docker-compose down"
-            sh "sudo rm -rf output/"
         }
     }
 }
