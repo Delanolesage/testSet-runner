@@ -26,4 +26,5 @@ services:
       - CUCUMBER_FEATURES=classpath:features
       - FILE=test.properties
     volumes:
-      - ./output/test-result:/usr/share/test-automation/test-report
+      - ./output/test/test-output:/usr/share/test-automation/test-output
+      - ./output/test/test-report:/usr/share/test-automation/test-report
