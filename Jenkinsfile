@@ -19,10 +19,6 @@ pipeline {
     }
     post {
         always {
-            sh "ls -la"
-            sh "cd output/"
-            sh "ls -la"
-            sh "cd .."
             archiveArtifacts artifacts: 'output/**'
             sh "docker-compose down"
             sh "sudo rm -rf output/"
